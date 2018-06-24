@@ -1,17 +1,36 @@
-<!-- This file defines the Home page -->
 {% extends 'home/base.html' %}
-{% block title %}{{ title }}{% endblock %}
+
+{% block title %}boo(kn)erds{% endblock %}
 
 {% block content %}
-	<!-- This block defines the content for the Home page(index) -->
-	<div class="content-container">
-		<!-- Div for Search Bar -->
-		<input class="search-bar" type="text" placeholder="Search..">
-		<!-- This will be the div for all of the books list. -->
-		<div class="books-list">
-			<!-- This will be a for-loop to display each book using a template. -->
 
+<!-- Page Content -->
+<div class="container">
+
+	{% include 'home/header.html' %}
+
+	<!-- Page Features -->
+	<div class="row text-center">
+
+		{% for book in featured_books %}
+		<div class="col-lg-3 col-md-6 mb-4">
+			<div class="card">
+				<img class="card-img-top" src="{{ book.img.url }}" alt="{{ book.title }}">
+				<div class="card-body">
+					<h4 class="card-title">{{ book.title }}</h4>
+					<p class="card-text">{{ book.summary }}</p>
+				</div>
+				<div class="card-footer">
+					<a href="books/{{ book.id }}" class="btn btn-primary">Find Out More!</a>
+				</div>
+			</div>
 		</div>
+		{% endfor %}
+
 	</div>
+	<!-- /.row -->
+
+</div>
+<!-- /.container -->
 
 {% endblock %}

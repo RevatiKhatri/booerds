@@ -1,26 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-	<!-- Base template used by the entire site. -->
-  <head>
-    <meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
 
-		<!-- Defining the block title with a default value. -->
-    <title>{% block title %}iBooks{% endblock %}</title>
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="boo(kn)erds - E-commerce Book Store for UGA CSCI-4050 - Software Engineering">
+		<meta name="author" content="Jonathan Templeton, Eric Older, Revati Khatri, Mayank Verma, Ankita Joshi, Niraj Kadam">
+		<title>{% block title %}{% endblock %}</title>
 
 		<!-- Include head.html -->
 		{% include 'home/head.html' %}
 
-  </head>
-  <body>
-		<!-- Include header.html -->
-    {% include 'home/header.html' %}
+	</head>
 
-		<!-- Defining the content block -->
+  <body>
+
+		<!-- Include navbar.html -->
+    {% include 'home/navbar.html' %}
+
+		<!-- Define the block 'content' -->
     {% block content %}
-    {% endblock %}
+		{% endblock %}
 
 		<!-- Include footer.html -->
 		{% include 'home/footer.html' %}
+
+		<!-- Include scripts.html -->
+    {% include 'home/scripts.html' %}
+
   </body>
+
 </html>
