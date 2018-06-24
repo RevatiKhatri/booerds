@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 
 # Create your views here.
 def index(request):
@@ -106,3 +107,35 @@ def books(request):
 		],
 	}
 	return render(request, 'home/books.html', context)
+
+def details(request, book_id):
+	context = {
+		'id': book_id,
+	}
+	return render(request, 'home/details.html', context)
+
+def login(request):
+	# If user is already logged in, redirect to profile page with ID.
+	# if request.user.is_authenticated:
+	# 	## Need to get users ID first before redirecting them.
+	# 	return redirect('profile/1')
+	# Else send to login page
+	context = {}
+	return render(request, 'home/login.html', context)
+
+def profile(request, user_id):
+	# If user is not already logged in, redirect to login page.
+	# if not request.user.is_authenticated:
+	# 	return redirect('login/')
+	# Else take them to their profile page.
+	context = {
+		'id': user_id
+	}
+	return render(request, 'home/profile.html', context)
+
+def register(request):
+	# If user is already logged in, then redirect to profile page.
+
+	# Else take them to register page.
+	context = {}
+	return render(request, 'home/register.html', context)
